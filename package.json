@@ -53,7 +53,7 @@
   "dependencies": {
     "@reglendo/canvas2image": "^1.0.5-2",
     "acorn": "^6.1.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bricks.js": "^1.8.0",
     "canvas2image": "^1.0.5",
     "css3transform": "^1.2.1",
