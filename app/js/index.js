@@ -51,7 +51,12 @@ wx.shareLink =location.origin + location.pathname;
 wx.sharePic = "http://n.sinaimg.cn/fj/jindu/img/wxshare.png?9"; 
 wx.shareDesc = `“健康人生 绿色无毒”，禁毒知识问答，通关赢好礼！`;
 wx.sharePyq = `“健康人生 绿色无毒”，禁毒知识问答，通关赢好礼！`;
-wx.shareTit = "626国际禁毒日|泉州鲤城禁毒知识有奖答题"; 
+wx.shareTit = "626国际禁毒日|泉州鲤城禁毒知识有奖答题";
+wx.success = function(){
+	let data = {};
+	data.chancetype = 'weixinshare';
+	Ajax.post('https://www.appmn.cn/project2020/quanzhoujindu/getchance.php',data,function(json){})
+}  
 let wxshare =new wxShare();
 wxshare.setInfo(wx);
 let tid = 0;
@@ -250,6 +255,9 @@ $(function(){
 		$(".psum").show();
 		$(".page02 .btn").hide();
 		app.setListener();
+		let data = {};
+		data.chancetype = 'poster';
+		Ajax.post('https://www.appmn.cn/project2020/quanzhoujindu/getchance.php',data,function(json){});
 		
 	})
 

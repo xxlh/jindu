@@ -1,5 +1,18 @@
 /* 小玲欢 */
 import {htmlServerHost} from './config'
+import getParams from "../js/getParams"
+let param = getParams();
+let token="";
+console.log("setItem====")
+// if(localStorage.getItem("token")!=="undefined" && localStorage.getItem("token") ){
+	
+// }else{
+	// localStorage.setItem("token", param.token_code);
+// }
+if(param.token_code){
+	localStorage.setItem("token", param.token_code);
+}
+token = localStorage.getItem("token");
 
 //格式化参数
 let formatParams = (data) => {
@@ -59,9 +72,9 @@ export let get = function (...o) {
 		o[2] = o[1],
 		o[1] = {}
 	) : null;
-
+	o[1] = {...o[1], ...{"token_code": token}}
 	ajax({
-		url: o[0],
+		// url: o[0],
 		type: "GET",
 		data: o[1],
 		dataType: "json",
@@ -81,7 +94,7 @@ export let post = function (...o) {
 		o[2] = o[1],
 		o[1] = {}
 	) : null;
-
+	o[1] = {...o[1], ...{"token_code": token}}
 	ajax({
 		url: o[0],
 		type: "post",
@@ -99,7 +112,7 @@ export let post = function (...o) {
 
 export let getJSON = function (...args) {
 	let url = args[0];
-	let data = typeof args[1]!=='function' ? args[1] : {};
+	let data = typeof args[1]!=='function' ? {...args[1], ...{"token_code": token}} : {};
 	let fn = typeof args[1]==='function' ? args[1] : args[2];
 	let fn_name = "AJAX" + Math.floor(Math.random()*10000000);
 	let elem = document.createElement("script");
