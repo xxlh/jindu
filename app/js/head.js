@@ -39,7 +39,7 @@ window.onresize=windowResize;
 
 
 
-let Data = new AjaxData('https://www.appmn.cn/project2020/quanzhoujindu/');
+let Data = new AjaxData('https://www.appmn.cn/project2020/datangdichan/');
 	window._initInfo = Data.get('browse.php');
 	 ready(async ()=>{
 		let initInfo = await window._initInfo;
